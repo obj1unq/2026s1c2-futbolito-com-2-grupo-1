@@ -14,13 +14,27 @@ object lionel {
 	}
 	
 	method avanzar() {
-		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
+		position = game.at((game.width() - 1).min(position.x() + 1), position.y())
+		
 	}
+    
+
+
+   }
+
 	
-}
+
 
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+method levantar(){
+	game.colliders(lionel).contains(self) //compara posiciones
+	position = game.at (self.position().x(), self.position().y() +1)
+     game.schedule(2000, { => position = game.at (self.position().x(), self.position().y() -1) })
+
+}	
+
 }
