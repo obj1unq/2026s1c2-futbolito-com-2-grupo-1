@@ -18,20 +18,20 @@ object lionel {
 	}
     
 
-	method irA(nuevaPosicion){
 
-	}
-	method levantarLaPelota(){
-		self.irA(pelota.position()){
-	position = nuevaPosicion
    }
 
-	}
 	
-}
+
 
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)	
+	var property position = game.at(5,5)
+
+method levantar(){
+	position = game.at (self.position().x(), self.position().y() +1)
+
+
+}	
 }
