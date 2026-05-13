@@ -1,0 +1,13 @@
+import wollok.game.*
+import objetos.*
+
+describe "levantarla"{
+    test "Llegar a la misma posicion"{
+        
+        assert lionel.avanzar()
+        lionel.avanzar()
+        pelota.levantar()
+        assert.equals(game.at(lionel.position().x(), lionel.position().y()+1), pelota.position())
+
+    }
+}
