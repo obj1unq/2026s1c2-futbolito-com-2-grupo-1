@@ -12,6 +12,7 @@ program futbolito{
 	keyboard.left().onPressDo({lionel.retroceder()})
 	keyboard.right().onPressDo({lionel.avanzar()})
     game.onCollideDo(lionel, {pelota => pelota.levantar()})
+	keyboard.l().onPressDo({pelota.levantar()})
 	game.start()
     
 
