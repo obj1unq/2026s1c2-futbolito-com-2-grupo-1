@@ -14,7 +14,8 @@ object lionel {
 	}
 	
 	method avanzar() {
-		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
+		position = game.at((game.width() - 1).min(position.x() + 1), position.y())
+		
 	}
 
 	method taquito() { 
@@ -24,6 +25,14 @@ object lionel {
 		} 
 	}
 	
+	method patear() {
+		if (not game.colliders(self).isEmpty()){
+			const pelota2= game.uniqueCollider(self)
+			pelota2.cambiarPosicion((pelota.position().x()+3).min(game.width()-1))
+		}
+
+	}
+
 }
 
 
@@ -38,4 +47,19 @@ object pelota {
 	method nuevoX() {
 		return 0.max(self.position().x() - 2)
 	}
+
+	method cambiarPosicion(_nuevaPosition) {
+	  self.position(game.at(_nuevaPosition, self.position().y()))
+	}
+	
+	method levantar(){
+	game.colliders(lionel).contains(self) //compara posiciones
+	position = game.at (self.position().x(), self.position().y() +1)
+     game.schedule(2000, { => position = game.at (self.position().x(), self.position().y() -1) })
+
+}	
+
 }
+
+
+
