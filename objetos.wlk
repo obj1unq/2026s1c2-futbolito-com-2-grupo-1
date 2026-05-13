@@ -14,7 +14,8 @@ object lionel {
 	}
 	
 	method avanzar() {
-		position = game.at((game.width() - 1).min(position.x() + 1), position.y()) 
+		position = game.at((game.width() - 1).min(position.x() + 1), position.y())
+		
 	}
     
 
@@ -31,7 +32,7 @@ object pelota {
 
 method levantar(){
 	position = game.at (self.position().x(), self.position().y() +1)
-
+     game.schedule(2000, { => position = game.at (self.position().x(), self.position().y() -1) })
 
 }	
 }

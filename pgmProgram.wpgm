@@ -13,6 +13,6 @@ program futbolito{
 	keyboard.right().onPressDo({lionel.avanzar()})
     game.onCollideDo(lionel, {pelota => pelota.levantar()})
 	game.start()
-
+    
 
 }
