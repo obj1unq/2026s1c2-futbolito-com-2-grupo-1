@@ -18,6 +18,13 @@ object lionel {
 		
 	}
 
+	method taquito() { 
+		if (not game.colliders(self).isEmpty()) {
+			const balon = game.uniqueCollider(self)
+			balon.hacerTaquito()
+		} 
+	}
+	
 	method patear() {
 		if (not game.colliders(self).isEmpty()){
 			const pelota2= game.uniqueCollider(self)
@@ -31,12 +38,21 @@ object lionel {
 
 object pelota {
 	const property image="pelota.png"
-	var property position = game.at(5,5)
+	var property position = game.at(5,5)	
+
+	method hacerTaquito() {
+		self.position(game.at(self.nuevoX(), self.position().y()))
+	}
+
+	method nuevoX() {
+		return 0.max(self.position().x() - 2)
+	}
 
 	method cambiarPosicion(_nuevaPosition) {
 	  self.position(game.at(_nuevaPosition, self.position().y()))
 	}
-method levantar(){
+	
+	method levantar(){
 	game.colliders(lionel).contains(self) //compara posiciones
 	position = game.at (self.position().x(), self.position().y() +1)
      game.schedule(2000, { => position = game.at (self.position().x(), self.position().y() -1) })
