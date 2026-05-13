@@ -31,7 +31,7 @@ object pelota {
 	var property position = game.at(5,5)
 
 method levantar(){
-	if (pelota.position() == lionel.position())
+	game.colliders(lionel).contains(self) //compara posiciones
 	position = game.at (self.position().x(), self.position().y() +1)
      game.schedule(2000, { => position = game.at (self.position().x(), self.position().y() -1) })
 
