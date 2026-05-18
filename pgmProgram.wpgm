@@ -1,5 +1,7 @@
 import wollok.game.*
 import objetos.*
+import rolActual.*
+
 
 program futbolito{
 
@@ -11,8 +13,14 @@ program futbolito{
 	keyboard.enter().onPressDo({game.say(lionel, "Vamos Argentina!")})
 	keyboard.left().onPressDo({lionel.retroceder()})
 	keyboard.right().onPressDo({lionel.avanzar()})
+	keyboard.t().onPressDo({lionel.taquito()})
 
+	keyboard.p().onPressDo({ lionel.patear() })
+	
+	keyboard.c().onPressDo({ lionel.camiseta() })
+
+	keyboard.l().onPressDo({pelota.levantar()})
 	game.start()
-
+    
 
 }
